@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default function AppButton(props) {
+    
     return (
         <TouchableOpacity style={{padding: 10}} onPress={props.onPress}>
             <View style={[styles.button, {backgroundColor: props.color}]}>

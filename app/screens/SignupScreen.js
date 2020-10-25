@@ -1,12 +1,9 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Image, Text, Button, KeyboardAvoidingView } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 
 
 import LogoImage from '../components/Logo';
 import RegistrationForm from '../components/RegistrationForm'
-
-import css from '../config/styles'
-import colors from '../config/colors'
 
 import splash from '../assets/background.jpg';
 
@@ -31,7 +28,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-end",
         alignItems: "center",
-        paddingHorizontal: 16
     },
     headerLogo: {
         position: "absolute",

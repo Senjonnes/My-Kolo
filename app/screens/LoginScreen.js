@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Image, Text, Button } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image, Text, Button, KeyboardAvoidingView } from 'react-native';
 
 
 import LogoImage from '../components/Logo';
@@ -10,7 +10,7 @@ import colors from '../config/colors'
 
 import splash from '../assets/background.jpg';
 import logo from '../assets/logo-red.png';
-import { TextInput } from 'react-native-gesture-handler';
+import { TextInput, ScrollView } from 'react-native-gesture-handler';
 
 function LoginScreen({ navigation }) {
     return (
@@ -21,21 +21,19 @@ function LoginScreen({ navigation }) {
                 <View style={styles.half1_}>
                     <Text style={styles.bigText}>Welcome back!</Text>
                     <Text style={styles.normal}>Enter your registered phone number to log in</Text>
+                    <ScrollView showsVerticalScrollIndicator={false} style={{width: css.w1}}>
+                        <KeyboardAvoidingView style={{width: css.w1}}>
+                            <View style={{padding: 10}}>
+                                <TextInput placeholder="+234 000 000 0000" style={styles.loginInput} />
+                            </View>
+                            <AppButton onPress={() => {navigation.navigate('SignupScreen')}} text="Login" color="#000000" />
+                            <View style={styles.helpContainer}>
+                                <Text style={styles.help}>Help?</Text>
+                            </View>
+                        </KeyboardAvoidingView>
+                    </ScrollView>
                 </View>
             </View>
-
-            <View style={styles.half2}>
-                <View style={styles.half2_}>
-                    <View style={{padding: 10}}>
-                        <TextInput placeholder="+234 000 000 0000" style={styles.loginInput} />
-                    </View>
-                    <AppButton onPress={() => {navigation.navigate('SignupScreen')}} text="Login" color="#000000" />
-                    <View style={styles.helpContainer}>
-                        <Text style={styles.help}>Help?</Text>
-                    </View>
-                </View>
-            </View>
-
         </ImageBackground>
     );
 }
@@ -53,32 +51,24 @@ const styles = StyleSheet.create({
         zIndex: 100
     },
     half1: {
-        height: "35%",
+        height: "100%",
         width: "100%",
     },
     half1_: {
         height: "100%",
         width: "100%",
-        justifyContent: "flex-end",
-        padding: 10
-
-    },
-    half2: {
-        height: "65%",
-        width: "100%",
-    },
-    half2_: {
-        height: "100%",
-        width: "100%",
-        paddingTop: "16%",
+        paddingTop: "48%",
     },
     bigText: {
         fontSize: css.bigText,
-        fontWeight: "700"
+        fontWeight: "700",
+        paddingHorizontal: 10
     },
     normal: {
         fontSize: css.normal,
-        color: colors.faintedBlack
+        color: colors.faintedBlack,
+        paddingBottom: "15%",
+        paddingHorizontal: 10
     },
     loginInput: {
         borderWidth: 1,
